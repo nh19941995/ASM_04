@@ -72,7 +72,7 @@ public class Main {
 
             switch (choice) {
                 case 1:
-                    DigitalBank.showCustomers();
+                    bank.showCustomers();
                     break;
                 case 2:
                     // src/main/java/src/Stores/Customers.txt
@@ -87,16 +87,16 @@ public class Main {
                             System.out.println("Đường dẫn không được để trống. Vui lòng nhập lại.");
                         }
                     }
-                    DigitalBank.addCustomers(urlCustomersTxt);
+                    bank.addCustomers(urlCustomersTxt);
                     break;
                 case 3:
-                    DigitalBank.addSavingAccount(scanner);
+                    bank.addSavingAccount(scanner);
                     break;
                 case 4:
                     try {
                         // nhập ID
                         String depositorsID = RegexCheck.getInput("Nhập mã số của người gửi tiền: ", RegexCheck.CCCDNumber, scanner);
-                        DigitalBank.tranfers(scanner,depositorsID,Main.getCustomerData());
+                        bank.tranfers(scanner,depositorsID,Main.getCustomerData());
                     }catch (Exception e){
                         System.out.println(e.getMessage());;
                         break;
@@ -106,7 +106,7 @@ public class Main {
                     try {
                         // nhập ID
                         String withdrawID = RegexCheck.getInput("Nhập mã số của người rút tiền: ", RegexCheck.CCCDNumber, scanner);
-                        DigitalBank.withdraw(scanner,withdrawID,Main.getCustomerData());
+                        bank.withdraw(scanner,withdrawID,Main.getCustomerData());
                     }catch (Exception e){
                         System.out.println(e.getMessage());;
                         break;

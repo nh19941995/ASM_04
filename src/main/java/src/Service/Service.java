@@ -56,31 +56,6 @@ public class Service {
         }
     }
 
-    public static List<Customer> joinAccountToCustomer(List<Customer> customerList , List<Account> accountList){
-        // map các listAccount có key là id
-        Map<String, List<Account>> customerMap = new HashMap<>();
-        for (Account account: accountList) {
-            if (customerMap.containsKey(account.getCustomerId().getId())){
-                List<Account> a = customerMap.get(account.getCustomerId().getId());
-                a.add(account);
-                customerMap.replace(account.getCustomerId().getId(),a);
-            }else {
-                List<Account> a = new ArrayList<>();
-                a.add(account);
-                customerMap.putIfAbsent(account.getCustomerId().getId(),a);
-            }
-        }
-
-        for (Customer customer: customerList) {
-            for (String s: customerMap.keySet()) {
-                if (customer.getCustomerId().getId().equals(s)){
-                    customer.setAccounts(customerMap.get(s));
-                }
-            }
-        }
-        return customerList;
-    }
-
 
     public static List<Account> joinTransactionToAccount(List<Account> accountList , List<Transaction> transactionList){
         // map các listAccount có key là id

@@ -12,8 +12,6 @@ import java.util.ArrayList;
 import static org.junit.jupiter.api.Assertions.*;
 
 class SavingsAccountTest {
-    private final double SAVINGS_ACCOUNT_MAX_WITHDRAW = 5000000d;
-    private final double SAVINGS_ACCOUNT_MIN_WITHDRAW = 50000d;
     private static SavingsAccount account1;
     private static SavingsAccount account2;
     @BeforeEach

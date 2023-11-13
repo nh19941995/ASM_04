@@ -21,15 +21,14 @@ public class DigitalBank extends Bank {
         this.setId(String.valueOf(UUID.randomUUID()));
     }
 
-    public static void showCustomers(){
+    public void showCustomers(){
         // lấy dữ liệu
-        List<Customer> customerList_1 = Main.getCustomerData();
-        List<Account> accountList_1 = Main.getAccountData();
-        List<Customer> result  = Service.joinAccountToCustomer(customerList_1,accountList_1);
-        if (result.size()==0){
+        List<Customer> customerList = Main.getCustomerData();
+        List<Account> accountList = Main.getAccountData();
+        if (customerList.size()==0){
             System.out.println("Chưa có khách hàng nào trong danh sách!");
         }else {
-            result.stream().forEach(s->s.displayInformation());
+            customerList.stream().forEach(s->s.displayInformation());
         }
     }
 
@@ -78,7 +77,7 @@ public class DigitalBank extends Bank {
     }
 
 
-    public static void addCustomers(String fileName) {
+    public void addCustomers(String fileName) {
         List<Exception> exceptions = new ArrayList<>();
         // đọc file Customers.txt
         List<Customer> customerListTxt = new ArrayList<>();
@@ -116,7 +115,7 @@ public class DigitalBank extends Bank {
         customerList.stream().forEach(s -> s.displayInformation());
     }
 
-    public static boolean addSavingAccount(Scanner scanner){
+    public boolean addSavingAccount(Scanner scanner){
         List<Customer> customerList = Main.getCustomerData();
         List<Account> accountList = Main.getAccountData();
         String CCCDnumber = RegexCheck.getInput("Nhập mã số của khách hàng: ",RegexCheck.CCCDNumber,scanner);
@@ -192,7 +191,7 @@ public class DigitalBank extends Bank {
         return true;
     }
 
-    public static void tranfers(Scanner scanner, String customerId, List<Customer> customerList) throws Exception{
+    public void tranfers(Scanner scanner, String customerId, List<Customer> customerList) throws Exception{
         // check và in thông tin người gửi
         Customer senderCustomer = isCustomerExisted(customerId,customerList);
         senderCustomer.displayInformation();
@@ -203,7 +202,7 @@ public class DigitalBank extends Bank {
         }
     }
 
-    public static void withdraw(Scanner scanner, String customerId,List<Customer> customerList) throws Exception{
+    public void withdraw(Scanner scanner, String customerId,List<Customer> customerList) throws Exception{
         // check và in thông tin người gửi
         Customer withdrawerCustomer = isCustomerExisted(customerId,customerList);
         withdrawerCustomer.displayInformation();
