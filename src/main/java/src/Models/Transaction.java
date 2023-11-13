@@ -138,11 +138,6 @@ public class Transaction implements Serializable {
         return transactionRecord;
     }
 
-
-
-
-
-
 }
 
 

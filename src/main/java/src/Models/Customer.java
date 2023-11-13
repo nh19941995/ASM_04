@@ -222,13 +222,10 @@ public class Customer extends User implements Serializable {
             }catch (Exception e){
                 // tạo giao dịch lỗi
                 senderAccount.withdraw(Double.parseDouble("0"),false);
-//                Main.setTransactionData(TransactionDAO.getInstance().List());
                 throw e;
             }
             // bắt đầu rút
             senderAccount.withdraw(Double.parseDouble(amount),true);
-            // update dữ liệu
-//            Main.setTransactionData(TransactionDAO.getInstance().List());
         }catch (Exception e){
             throw e;
         }

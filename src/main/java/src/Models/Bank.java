@@ -33,8 +33,6 @@ public abstract class Bank {
         this.Id = String.valueOf(UUID.randomUUID());
     }
 
-
-
     public static List<Customer> checkFileInputCustomers(List<Customer> customerListTxt, List<Exception> exceptionList) throws CustomerIdNotValidException{
         // lấy dữ liệu
         List<Customer> customerListDat = Main.getCustomerData();

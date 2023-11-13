@@ -33,7 +33,6 @@ public class User implements Serializable {
 
 
     // phương thức so sánh chỉ so sánh trường id
-
     @Override
     public boolean equals(Object obj) {
         if (this == obj) return true;

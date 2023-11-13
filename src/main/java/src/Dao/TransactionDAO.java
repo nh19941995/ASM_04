@@ -1,6 +1,5 @@
 package src.Dao;
 
-import src.Models.Account;
 import src.Models.Transaction;
 import src.Service.Service;
 

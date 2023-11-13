@@ -48,7 +48,6 @@ public class SavingsAccount extends Account implements ReportService, Withdraw,I
         if (senderBalace < SAVINGS_ACCOUNT_MIN_WITHDRAW ){
             throw new AmountException("Số dư không đủ, giao dịch không thành công!");
         }
-
     }
 
 
@@ -70,8 +69,8 @@ public class SavingsAccount extends Account implements ReportService, Withdraw,I
             logTranfers(transactionSender,transactionreceive);
         }else {
             // tạo giao dịch lỗi
-            Transaction transactionSender = this.createTransaction(0, Instant.now(),status, TypeTransaction.TRANSFER_MONEY);
-            Transaction transactionreceive = receiveAccount.createTransaction(0, Instant.now(),status,TypeTransaction.TRANSFER_MONEY);
+            this.createTransaction(0, Instant.now(),status, TypeTransaction.TRANSFER_MONEY);
+            receiveAccount.createTransaction(0, Instant.now(),status,TypeTransaction.TRANSFER_MONEY);
         }
 
     }
